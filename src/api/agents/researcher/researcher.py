@@ -81,7 +81,7 @@ def execute_research(instructions: str, prompty_file_path='researcher.prompty', 
         @retry(
             retry=retry_if_result(is_rate_limited),
             wait=wait_exponential(multiplier=1, min=4, max=60),
-            stop=stop_after_attempt(6)
+            stop=stop_after_attempt(20)
         )
         def run_agent():
         # Create and process agent run in thread with tools
